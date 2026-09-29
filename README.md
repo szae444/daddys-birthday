@@ -38,8 +38,17 @@ Open **`src/content.ts`**. It holds:
 12. **Wish Wall**: visitors pin sticky-note wishes (saved in that browser)
 13. Extras: index rail, sound controls, paper-grain texture, reduced-motion support, and a Konami-code easter egg (↑↑↓↓←→←→BA)
 
-## Share it online
-`npm run build` creates a `dist/` folder. Drag that folder onto https://app.netlify.com/drop, or deploy with Vercel, to get a link you can send.
+## Live site
+https://szae444.github.io/daddys-birthday/
+
+After changing anything (text, photos, music), publish the update with:
+
+```
+npm run deploy
+```
+
+This builds the site and uploads it to the `gh-pages` branch. GitHub Pages refreshes within a minute or two.
+Only the small, location-free photo copies in `src/assets/photos/` are uploaded. Your originals in `Photos/` stay on this computer.
 
 ## About the music
 - The song streams from YouTube, so the viewer needs an internet connection. Browsers only allow sound after a tap, which is why it starts when the envelope is opened.
