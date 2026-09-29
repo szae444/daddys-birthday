@@ -12,17 +12,11 @@ const optimized = import.meta.glob("/src/assets/photos/*.jpg", {
   import: "default",
 }) as Record<string, string>;
 
-const originals = import.meta.glob("/Photos/*.{jpg,jpeg,png,webp,gif,avif,JPG,JPEG,PNG,WEBP,GIF,AVIF}", {
-  eager: true,
-  query: "?url",
-  import: "default",
-}) as Record<string, string>;
-
 const key = (p: string) => p.split("/").pop()!.replace(/\.[^.]+$/, "").toLowerCase();
 
-/** file base name → URL, preferring the optimized copy */
+/** file base name → URL. Only the optimized copies are ever used, so the
+    full-size originals (with GPS data) never end up in the published site. */
 const byKey = new Map<string, string>();
-for (const [p, url] of Object.entries(originals)) byKey.set(key(p), url);
 for (const [p, url] of Object.entries(optimized)) byKey.set(key(p), url);
 
 /** File name (or full URL) → usable image URL. "" if not found. */
