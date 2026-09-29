@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Original photos stay on this computer only (large files + GPS location data).
+# The site uses the small, location-free copies in src/assets/photos/.
+/Photos/
+
+.DS_Store
+Thumbs.db
